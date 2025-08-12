@@ -31,7 +31,6 @@ def fetch_open_bugs():
         params["assigned_to"] = ASSIGNED_TO_EMAIL
     if PRODUCT_NAME:
         params["product"] = PRODUCT_NAME
-    print(params)
     response = requests.get(f"{BUGZILLA_API_URL}/bug", params=params)
     response.raise_for_status()
     return response.json().get("bugs", [])
